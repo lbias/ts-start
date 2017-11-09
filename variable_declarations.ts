@@ -154,3 +154,126 @@ function sumMatrix(matrix: number[][]) {
 
     return sum;
 }
+
+function theCityThatAlwaysSleeps(){
+  let getCity;
+  
+  if (true) {
+    let city = 'seattle';
+    getCity = function(){
+      return city;
+    }
+  }
+  
+  return getCity();
+}
+
+for (let i=0; i<10; i++) {
+  setTimeout(function() {console.log(i);}, 100*i);
+}
+
+const numLivesForCat = 9;
+
+const numLivesForCat = 9;
+const kitty = {
+  name: 'Aurora',
+  numLives: numLivesForCat，
+}
+
+// Error
+kitty = {
+    name: "Danielle",
+    numLives: numLivesForCat
+};
+
+// all "okay"
+kitty.name = "Rory";
+kitty.name = "Kitty";
+kitty.name = "Cat";
+kitty.numLives--;
+
+let input = [1, 2];
+let [first, second] = input;
+console.log(first); // outputs 1
+console.log(second); // outputs 2
+
+first = input[0];
+second = input[1];
+
+// swap variables
+[first, second] = [second, first];
+
+function f([first, second]: [number, number]) {
+    console.log(first);
+    console.log(second);
+}
+f(input);
+
+let [first, ...rest] = [1, 2, 3, 4];
+console.log(first); // outputs 1
+console.log(rest); // outputs [ 2, 3, 4 ]
+
+let [first] = [1, 2, 3, 4];
+console.log(first); // outputs 1
+
+let [, second, , fourth] = [1, 2, 3, 4];
+
+let o = {
+    a: "foo",
+    b: 12,
+    c: "bar"
+};
+let { a, b } = o;
+
+({ a, b } = { a: "baz", b: 101 });
+
+let { a, ...passthrough } = o;
+let total = passthrough.b + passthrough.c.length;
+
+let { a: newName1, b: newName2 } = o;
+
+let newName1 = o.a;
+let newName2 = o.b;
+
+let {a, b}: {a: string, b: number} = o;
+
+function keepWholeObject(wholeObject: { a: string, b?: number }) {
+    let { a, b = 1001 } = wholeObject;
+}
+
+type C = { a: string, b?: number }
+function f({ a, b }: C): void {
+    // ...
+}
+
+function f({ a, b } = { a: "", b: 0 }): void {
+    // ...
+}
+f(); // ok, default to { a: "", b: 0 }
+
+function f({ a, b = 0 } = { a: "" }): void {
+    // ...
+}
+f({ a: "yes" }); // ok, default b = 0
+f(); // ok, default to {a: ""}, which then defaults b = 0
+f({}); // error, 'a' is required if you supply an argument
+
+let first = [1, 2];
+let second = [3, 4];
+let bothPlus = [0, ...first, ...second, 5];
+
+let defaults = { food: "spicy", price: "$$", ambiance: "noisy" };
+let search = { ...defaults, food: "rich" };
+
+let defaults = { food: "spicy", price: "$$", ambiance: "noisy" };
+let search = { food: "rich", ...defaults };
+
+class C {
+  p = 12;
+  m() {
+  }
+}
+let c = new C();
+let clone = { ...c };
+clone.p; // ok
+clone.m(); // error!
